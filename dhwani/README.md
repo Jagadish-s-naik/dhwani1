@@ -1,1 +1,5 @@
-Dhwani the voice first urban commerce app
+# HAWCC
+
+### Hands-on AI-powered Workspace for Coding & Collaboration
+ 
+#

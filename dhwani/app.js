@@ -90,7 +90,7 @@ function parseVoice(text = '', name = '', dist = 'Bengaluru Urban') {
 
           const clauses = clean.split(/[,;\.\n]+|\band\b|\bmattu\b|\baur\b/gi).map(s => s.trim()).filter(Boolean);
 
-          const items = clauses.map((c, idx) => {
+          const items = clauses.filter(c => /\d/.test(c)).map((c, idx) => {
 
           const num = c.match(/\d+/), p = num ? parseInt(num[0], 10) : 200;
 
@@ -100,7 +100,7 @@ function parseVoice(text = '', name = '', dist = 'Bengaluru Urban') {
 
                   });
 
-                    return { shop_name: name ? `${name}'s ${cat.split('&')[0].trim()} Store` : `Dhwani ${cat.split('&')[0].trim()} Store`, category: cat, district: dist, theme: { color: col }, items: items.length ? items : [{ id: 'i-1', title: 'Specialty Product', price: 200, unit: 'pack' }] };
+                    return { shop_name: name ? `${name}'s ${cat.split('&')[0].trim()} Store` : `Dhwani ${cat.split('&')[0].trim()} Store`, category: cat, district: dist, theme: { color: col }, items};
 
                 }
 
@@ -440,7 +440,8 @@ function parseVoice(text = '', name = '', dist = 'Bengaluru Urban') {
                       parseTranscript() {
                         const res = parseVoice(App.sellState.transcript, App.sellState.name, App.sellState.district);
                         App.sellState.items = res.items;
-                        playAudio('success'); showToast('Items Extracted', `${res.items.length} items parsed`, 'success');
+                        if (!res.items.length) showToast('No products found', 'Say item name with price, e.g. Pedha 280', 'error');
+else { playAudio('success'); showToast('Items Extracted', `${res.items.length} items parsed`, 'success'); }
                         App.render();
                       },
                       useTestPrompt() {
@@ -488,7 +489,11 @@ function parseVoice(text = '', name = '', dist = 'Bengaluru Urban') {
                           const listings = s.listings || s.items || [];
                           const total = Object.entries(App.cart).reduce((sum, [id, qty]) => { const it = listings.find(l => l.id === id); return sum + (it ? it.price * qty : 0); }, 0);
                           openModal(`
-                            <h3 class="font-bold text-base pb-2 border-b">Checkout Cart</h3>
+                            <div class="flex items-center justify-between pb-2 border-b">
+     <button onclick="closeModal()" class="flex items-center gap-1 text-xs font-bold text-[#1F5E4B] hover:underline">← Back to shop</button>
+     <button onclick="closeModal()" aria-label="Close" class="w-7 h-7 rounded-full bg-[#FFF8EC] border border-[#E8DFD1] text-[#6B7280] hover:text-[#C8553D] font-bold text-xs">✕</button>
+   </div>
+   <h3 class="font-bold text-base">Checkout Cart</h3>
                             <div class="space-y-2 text-xs bg-[#FFF8EC] p-3 rounded-xl">
                             ${Object.entries(App.cart).map(([id, qty]) => { const it = listings.find(l => l.id === id); return `<div class="flex justify-between"><span>${qty}x ${it?.title}</span><span class="font-bold">₹${it ? it.price * qty : 0}</span></div>`; }).join('')}
                             <div class="pt-2 border-t font-bold flex justify-between"><span>Total:</span><span class="text-[#1F5E4B]">₹${total}</span></div>

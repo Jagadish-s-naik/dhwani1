@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dhwani (ಧ್ವನಿ) - Your voice. Your shop. • Karnataka</title>
+    <meta name="description" content="Voice-first micro-commerce & lender-ready business passports for women and micro-entrepreneurs across Karnataka." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+           theme: {
+            extend: {
+                colors:{
+                  dhwani:{
+                    turmeric: '#E8A317', turmericDark: '#C7890C', turmericLight: '#FEF3C7',
+                    green: '#1F5E4B', greenDark: '#154134', greenLight: '#E6F4F1',
+                    cream: '#FFF8EC', creamDark:  '#F7E7CD', terracotta: '#C8553D' , ink: '#2B2B2B', muted:'#6B7280' , border: '#E8DFD1'
+                  }
+                },
+                fontFamily: {
+                    display: ['Fraunces', 'serif'],
+                    body: ['"Noto Sans"', '"Noto Sans Kannada"', '"Noto Sans Devanagari"', 'sans-serif'],
+                },
+                boxShadow:{
+                    'soft':'0 8px 30px rgba(43, 43, 43, 0.06)',
+                    'glow':'0 0 35px rgba(232, 163, 23, 0.35)',
+                    'card':'0 4px 20px rgba(31, 94, 75, 0.08)',
+                }
+            }
+           }
+        }
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link rel="stylesheet" href="style.css" />
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        try {
+            if (window.google && google.translate){
+                new google.translate.TranslateElement({ pageLanguage: 'en', includedLanguages: 'kn,hi,en,te,ta,mr', autoDisplay: false}, 'google_translate_element');
+            }
+        } catch(e) {}
+
+      }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit" async defer></script>
+</head>
+<body class="min-h-full flex flex-col antialiased selection:bg-[#E8A317] selection:text-white bg-[#FFF8EC] text-[#2B2B2B]">
+  <div id="google_translate_element"></div>
+
+  <header class="sticky top-0 z-40 bg-white/95 backdrop-blur-md border-b border-[#E8DFD1] shadow-xs">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 h-16 flex items-center justify-between">
+      <a href="#/"  class="flex items-center gap-2.5" >
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#E8A317] to-[#C8553D] flex items-center justify-center text-white shadow-md font-bold text-lg">ಧ್ವ</div>
+        <div class="flex flex-col text-left">
+         <div class="flex items-center gap-1.5 leading-none">
+            <span class = "font-serif-heading text-2xl font-bold text-[#1F5E4B]">Dhwani</span>
+            <span class = "text-xs font-bold text-[#C8553D] bg-[#FFF8EC] px-1.5 py-0.5 rounded border border-[#E8DFD1]/60">ಧ್ವನಿ</span>
+          </div>
+          <span class="text-[11px] text-[#6B7280]">Your voice. Your shop. • Karnataka</span>
+        </div>
+      </a>
+
+      <div class="flex items-center gap-2 sm:gap-4">
+        <div class="hidden sm:inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full text-xs font-semibold bg-emerald-50 text-emerald-800 border border-emerald-200">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
+          <span> Karnataka Live</span>
+        </div>
+        <nav class="hidden md:flex items-center gap-1 text-sm font-medium">
+          <a href="#/discover" class="nav-link px-3 py-1.5 rounded-lg transition text-[#2B2B2B] hover:bg-[#FFF8EC]">Discover & Buy</a>
+          <a href="#/sell" class="nav-link px-3 py-1.5 rounded-lg transition font-semibold text-[#1F5E4B] hover:bg-[#FFF8EC]">Start Shop (Voice)</a>
+          <a href="#/dashboard" class="nav-link px-3 py-1.5 rounded-lg transition text-[#2B2B2B] hover:bg-[#FFF8EC]">Dashboard</a>
+          <a href="#/demo" class="nav-link px-3 py-1.5 rounded-lg text-[#C8553D] bg-[#C8553D]/10 hover:bg-[#C8553D]/20 font-semibold transition">⚡ Live Demo</a>
+        </nav>  
+
+        <div class="relative">
+          <button id="lang-btn" class="flex items-center gap-1.5 px-3 py-1.5 text-xs font-bold bg-[#FFF8EC] border border-[#E8DFD1] rounded-xl text-[#1F5E4B]">
+            <span id="curr-lang">English</span>
+          </button>
+          <div id="lang-menu" class="hidden absolute right-0 mt-2 w-36 bg-white rounded-2xl shadow-xl border border-[#E8DFD1] py-1.5 z-50 animate-pop-in">
+            <button onclick="changeLang('kn')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>ಕನ್ನಡ</span><span class="text-[#6B7280]">KN</span></button>
+            <button onclick="changeLang('en')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>English</span><span class="text-[#6B7280]">EN</span></button>
+            <button onclick="changeLang('hi')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>हिन्दी</span><span class="text-[#6B7280]">HI</span></button>
+            <button onclick="changeLang('te')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>తెలుగు</span><span class="text-[#6B7280]">TE</span></button>
+            <button onclick="changeLang('ta')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>தமிழ்</span><span class="text-[#6B7280]">TA</span></button>
+            <button onclick="changeLang('mr')" class="w-full text-left px-4 py-1.5 text-xs font-bold hover:bg-[#FFF8EC] flex justify-between"><span>मराठी</span><span class="text-[#6B7280]">MR</span></button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="app" class="flex-1 max-w-6xl w-full mx-auto px-4 sm:px-6 py-6 transition-opacity duration-200"></main>
+  <div class="md:hidden sticky bottom-0 z-30 bg-white/95 backdrop-blur-md border-t border-[#E8DFD1] py-2 px-3 flex items-center justify-around text-xs shadow-lg">
+    <a href="#/" class="mob-link flex flex-col items-center gap-1 py-1 px-2 text-[#6B7280]"><span>🏠</span><span>Home</span></a>
+    <a href="#/discover" class="mob-link flex flex-col items-center gap-1 py-1 px-2 text-[#6B7280]"><span>🔍</span><span>Explore</span></a>
+    <a href="#/sell" class="flex flex-col items-center justify-center text-white bg-gradient-to-r from-[#E8A317] to-[#C8553D] -mt-5 w-12 h-12 rounded-full shadow-glow">🎙️</a>
+    <a href="#/dashboard" class="mob-link flex flex-col items-center gap-1 py-1 px-2 text-[#6B7280]"><span>📊</span><span>Dashboard</span></a>
+    <a href="#/demo" class="mob-link flex flex-col items-center gap-1 py-1 px-2 text-[#C8553D]"><span>⚡</span><span>Demo</span></a>
+  </div>
+
+  <footer class="bg-white border-t border-[#E8DFD1] mt-12 py-8 text-center  text-sm text-[#6B7280]">
+    <div class="max-w-6xl mx-auto px-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <div class="flex items-center gap-2 text-left">
+        <div class="w-7 h-7 rounded-lg bg-[#1F5E4B] text-white flex items-center justify-center font-bold text-xs">ಧ್ವ</div>
+        <div><span class="font-bold text-[#2B2B2B]">Dhwani (ಧ್ವನಿ)</span><p class="text-xs text-[#6B7280]">Empowering Karnataka micro-enterprises with voice-first digital commerce</p></div>
+      </div>
+      <div class="flex items-center gap-4 text-xs font-medium">
+        <span>Zero Platform Fees</span><span>•</span><span>Instant Web App</span><span>•</span><span>100% Direct UPI Payments</span>
+      </div>
+      <div class="text-xs">Crafted with <span class="text-[#C8553D]">♥</span> for Karnataka micro-entrepreneurs</div>
+    </div>
+  </footer>
+
+  <div id="toasts" class="fixed bottom-5 right-5 z-50 flex flex-col gap-2 max-w-sm pointer-events-none"></div>
+
+  <div id="modal-container"></div>
+
+  <script src="app.js"></script>
+
+</body>
+</html>
