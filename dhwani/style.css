@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;0,9..144,700;1,9..144,400&family=Noto+Sans+Kannada:wght@400;500;600;700&family=Noto+Sans+Devanagari:wght@400;500;600;700&family=Noto+Sans:wght@400;500;600;700&display=swap');
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #FFF8EC;
+    color: #2B2B2B;
+    font-family: 'Noto Sans','Noto Sans Kannada','Not Sans Devanagari', sans-serif;
+    -webkit-tap-highlight-color: transparent;
+    overflow-x: hidden;
+
+}
+h1, h2, h3, .font-serif-heading{
+    font-family: 'Fraunces', serif;
+}
+
+@keyframes pulse-ring {
+  0% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 163, 23, 0.7); }
+  70% { transform: scale(1.15); box-shadow: 0 0 0 25px rgba(232, 163, 23, 0); }
+  100% { transform: scale(0.95); box-shadow: 0 0 0 0 rgba(232, 163, 23, 0); }
+}
+.animate-pulse-ring { animation: pulse-ring 2s cubic-bezier(0.215, 0.61, 0.355, 1) infinite; }
+
+@keyframes pop-in {
+    0% { opacity: 0; transform: scale(0.9) translateY(10px); }
+    100% { opacity: 1; transform: scale(1) translateY(0); }  
+}
+
+.animate-pop-in { animation: pop-in 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards; }
+
+.soundwave-bar { width: 4px; border-radius: 99px; background: currentColor; min-height: 4px; }
+
+::-webkit-scrollbar { width: 6px; height: 6px; }
+::-webkit-scrollbar-track { background: #FFF8EC; }
+::-webkit-scrollbar-thumb { background: #E8DFD1; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #C7890C; }
+
+#google_translate_element, .goog-te-banner-frame, .goog-tooltip, .goog-te-gadget, .skiptranslate iframe {
+    display: none !important;
+    visibility: hidden !important;
+
+}
+
+
+.goog-te-gadget { font-size: 0px !important; }
+.goog-te-gadget span  { display: none !important; }
+body { top: 0px !important; position: static !important; }
+.goog-text-highlight { background-color: transparent !important; box-shadow: none !important; }
+
+@media print {
+    body * { visibility: hidden; }
+    #print-certificate-area, #print-certificate-area * { visibility: visible; }
+    #print-certificate-area { position: absolute; left: 0; top: 0; width: 100%; background: #fff !important; padding: 20px; box-shadow: none !important; }
+    .no-print { display: none !important; }
+    @page { margin: 1cm; size: A4 portrait; }
+}
+
+
